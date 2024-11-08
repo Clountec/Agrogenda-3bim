@@ -10,10 +10,25 @@ public class Plantio {
     private String nomePlantio;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long idPlantio;
+    private String dataInicio;
+    private String dataColheita;
+    private String hectares;
+    private Agricultor agricultor;
 
     public Plantio() {
     }
+
+    public Plantio(String nomePlantio, Long idPlantio, String dataInicio, String dataColheita, String hectares,
+            Agricultor agricultor) {
+        this.nomePlantio = nomePlantio;
+        this.idPlantio = idPlantio;
+        this.dataInicio = dataInicio;
+        this.dataColheita = dataColheita;
+        this.hectares = hectares;
+        this.agricultor = agricultor;
+    }
+
 
     public String getNomePlantio() {
         return nomePlantio;
@@ -23,5 +38,43 @@ public class Plantio {
         this.nomePlantio = nomePlantio;
     }
 
-    
+    public String getDataInicio() {
+        return dataInicio;
+    }
+
+    public void setDataInicio(String dataInicio) {
+        this.dataInicio = dataInicio;
+    }
+
+    public String getDataColheita() {
+        return dataColheita;
+    }
+
+    public void setDataColheita(String dataColheita) {
+        this.dataColheita = dataColheita;
+    }
+
+    public String getHectares() {
+        return hectares;
+    }
+
+    public void setHectares(String hectares) {
+        this.hectares = hectares;
+    }
+
+    public Agricultor getAgricultor() {
+        return agricultor;
+    }
+
+    public void setAgricultor(Agricultor agricultor) {
+        this.agricultor = agricultor;
+    }
+
+    public Long getIdPlantio() {
+        return idPlantio;
+    }
+
+    public void setIdPlantio(Long idPlantio) {
+        this.idPlantio = idPlantio;
+    }
 }

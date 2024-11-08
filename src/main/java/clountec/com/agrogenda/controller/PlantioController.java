@@ -1,25 +1,24 @@
 package clountec.com.agrogenda.controller;
 
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import clountec.com.agrogenda.model.Plantio;
 import clountec.com.agrogenda.repository.PlantioRepository;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-
-
 @RestController
+@RequestMapping("/api/plantio")
 public class PlantioController {
+
     @Autowired
-    PlantioRepository plantioRepository;
+    private PlantioRepository plantioRepository;
 
-    @PostMapping("plantio")
-    public Plantio postMethodName(@RequestBody Plantio entity) {
-        Plantio plantioSalvo = plantioRepository.save(entity);
-
-        return plantioSalvo;
+    @PostMapping
+    public ResponseEntity<Plantio> savePlantio(@RequestBody Plantio plantio) {
+        Plantio plantioSalvo = plantioRepository.save(plantio);
+        return new ResponseEntity<>(plantioSalvo, HttpStatus.CREATED);
     }
-    
+
 }
